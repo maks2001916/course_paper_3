@@ -1,0 +1,14 @@
+### Добавить вопрос
+POST http://localhost:8080/exam/java/add?question=QuestionText&answer=QuestionAnswer
+Content-Type: application/json
+
+{
+  "question": "question1",
+  "answer": "answer1"
+}
+
+### Удалить вопрос
+DELETE http://localhost:8080/exam/java/remove?question=QuestionText&answer=QuestionAnswer
+
+### Получить все вопросы
+GET http://localhost:8080/exam/java
