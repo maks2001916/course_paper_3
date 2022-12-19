@@ -64,4 +64,25 @@ public class JavaQuestionService implements QuestionService{
             return string;
         }
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        JavaQuestionService that = (JavaQuestionService) o;
+        return Objects.equals(questions, that.questions) && Objects.equals(random, that.random);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(questions, random);
+    }
+
+    @Override
+    public String toString() {
+        return "JavaQuestionService{" +
+                "questions=" + questions +
+                ", random=" + random +
+                '}';
+    }
 }
