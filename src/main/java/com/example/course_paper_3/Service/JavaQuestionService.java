@@ -2,9 +2,11 @@ package com.example.course_paper_3.Service;
 
 import com.example.course_paper_3.Exception.ValueNotSpecifiedException;
 import com.example.course_paper_3.model.Question;
+import org.springframework.stereotype.Service;
 
 import java.util.*;
 
+@Service
 public class JavaQuestionService implements QuestionService{
 
     private Set<Question> questions = new HashSet<>();

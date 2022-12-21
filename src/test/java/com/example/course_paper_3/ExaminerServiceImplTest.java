@@ -3,6 +3,7 @@ package com.example.course_paper_3;
 import com.example.course_paper_3.Service.ExaminerServiceImpl;
 import com.example.course_paper_3.Service.JavaQuestionService;
 import com.example.course_paper_3.model.Question;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -30,5 +31,10 @@ public class ExaminerServiceImplTest {
     public void gettingAnExistingQuestion() {
         javaQuestionService.add(question1);
 
+    }
+
+    @Test
+    public void errorWhenGoingOutOfBounds() {
+        Assertions.assertThrows(examinerService.getQuestions(4))
     }
 }

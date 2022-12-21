@@ -2,12 +2,11 @@ package com.example.course_paper_3.Service;
 
 import com.example.course_paper_3.Exception.ThereIsNoSuchObjectException;
 import com.example.course_paper_3.model.Question;
+import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Objects;
-import java.util.Random;
+import java.util.*;
 
+@Service
 public class ExaminerServiceImpl implements ExaminerService{
 
     Random random = new Random();
@@ -19,10 +18,10 @@ public class ExaminerServiceImpl implements ExaminerService{
 
     @Override
     public Collection<Question> getQuestions(int amount) {
-        if (amount <= 0) {
+        if (amount <= 0 || amount > questionService.getAll().size()) {
             throw new ThereIsNoSuchObjectException();
         }
-        Collection<Question> questionCollection = new ArrayList<>();
+        Set<Question> questionCollection = new HashSet<>();
         for (int i = 0; i < amount; i++) {
             questionCollection.add(questionService.getRandomQuestion());
         }
