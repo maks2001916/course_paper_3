@@ -2,9 +2,11 @@ package com.example.course_paper_3.Service;
 
 import com.example.course_paper_3.Exception.ValueNotSpecifiedException;
 import com.example.course_paper_3.model.Question;
+import org.springframework.stereotype.Service;
 
 import java.util.*;
 
+@Service
 public class JavaQuestionService implements QuestionService{
 
     private Set<Question> questions = new HashSet<>();
@@ -63,5 +65,26 @@ public class JavaQuestionService implements QuestionService{
         } else {
             return string;
         }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        JavaQuestionService that = (JavaQuestionService) o;
+        return Objects.equals(questions, that.questions) && Objects.equals(random, that.random);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(questions, random);
+    }
+
+    @Override
+    public String toString() {
+        return "JavaQuestionService{" +
+                "questions=" + questions +
+                ", random=" + random +
+                '}';
     }
 }
